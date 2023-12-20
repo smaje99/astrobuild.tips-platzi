@@ -1,0 +1,3 @@
+astro.config.mjs
+prettier.config.mjs
+src/env.d.ts
