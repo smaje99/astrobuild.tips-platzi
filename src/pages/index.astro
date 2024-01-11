@@ -7,8 +7,10 @@ import Layout from '@/layouts/Layout.astro';
 
 <Layout title='astrobuild.tips'>
   <Header title='astrobuild.tip' />
-  <Hero />
-  <ul role='list' class='link-card-grid'>
-    <Card title='Hello Astro' time='2024-05-07' tags={['javascript']} />
-  </ul>
+  <main class='grid justify-center p-2'>
+    <Hero />
+    <ul role='list' class='link-card-grid'>
+      <Card title='Hello Astro' time='2024-05-07' tags={['javascript']} />
+    </ul>
+  </main>
 </Layout>
