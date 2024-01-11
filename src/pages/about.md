@@ -1,5 +1,6 @@
 ---
 title: "My about page"
+layout: "../layouts/MDLayout.astro"
 ---
 
 ## Hello world
