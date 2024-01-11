@@ -3,14 +3,24 @@ import Card from '@/components/Card.astro';
 import Header from '@/components/Header.astro';
 import Hero from '@/components/Hero.astro';
 import Layout from '@/layouts/Layout.astro';
+
+const allPost = await Astro.glob('../content/*.md');
 ---
 
 <Layout title='astrobuild.tips'>
   <Header title='astrobuild.tip' />
-  <main class='grid justify-center p-2'>
+  <main class='grid justify-center p-2 gap-4'>
     <Hero />
-    <ul role='list' class='link-card-grid'>
-      <Card title='Hello Astro' time='2024-05-07' tags={['javascript']} />
+    <ul role='list' class='link-card-grid flex gap-3'>
+      {
+        allPost.map((post) => (
+          <Card
+            title={post?.frontmatter?.title}
+            time={post?.frontmatter?.pubDate}
+            tags={post?.frontmatter?.tags}
+          />
+        ))
+      }
     </ul>
   </main>
 </Layout>
