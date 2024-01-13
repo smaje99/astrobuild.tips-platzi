@@ -39,6 +39,7 @@
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "curly": "error",
     "jsx-quotes": ["warn", "prefer-single"],
+    "react/jsx-filename-extension": [0],
     "import/extensions": "off"
   },
   "overrides": [
