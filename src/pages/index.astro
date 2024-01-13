@@ -1,10 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
+
 import Card from '@/components/Card.astro';
 import Header from '@/components/Header.astro';
 import Hero from '@/components/Hero.astro';
 import Layout from '@/layouts/Layout.astro';
 
-const allPost = await Astro.glob('../content/grettings/*.md');
+const allPost = await getCollection('greetings');
 ---
 
 <Layout title='astrobuild.tips'>
@@ -15,9 +17,9 @@ const allPost = await Astro.glob('../content/grettings/*.md');
       {
         allPost.map((post) => (
           <Card
-            title={post?.frontmatter?.title}
-            time={post?.frontmatter?.pubDate}
-            tags={post?.frontmatter?.tags}
+            title={post.data?.title}
+            time={post.data?.pubDate}
+            tags={post.data?.tags}
           />
         ))
       }
