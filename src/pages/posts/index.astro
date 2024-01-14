@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+
+import Card from '@/components/Card.astro';
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/Header.astro';
+
+const posts = (await getCollection('greetings')).sort();
+---
+
+<Layout title='Posts'>
+  <Header title='Greetings' />
+  <ul role='list' class='flex gap-3 justify-center p-8'>
+    {
+      posts.map((post) => (
+        <Card
+          title={post.data?.title}
+          time={post.data?.pubDate}
+          tags={post.data?.tags}
+          slug={post.slug}
+        />
+      ))
+    }
+  </ul>
+</Layout>
