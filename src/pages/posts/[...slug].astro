@@ -2,6 +2,8 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 
+import { Header } from '@/components/Header';
+
 export const getStaticPaths = (async () => {
   const posts = await getCollection('greetings');
   return posts.map((post) => ({ params: { slug: post.slug }, props: post }));
@@ -11,4 +13,5 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
+<Header title='AstroBuild.tips' />
 <Content />
