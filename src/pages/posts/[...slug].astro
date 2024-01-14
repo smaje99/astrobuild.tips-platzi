@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 
 import { Header } from '@/components/Header';
+import Footer from '@/components/Footer.vue';
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection('greetings');
@@ -15,3 +16,4 @@ const { Content } = await post.render();
 
 <Header title='AstroBuild.tips' />
 <Content />
+<Footer />
