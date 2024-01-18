@@ -3,3 +3,4 @@ prettier.config.mjs
 src/env.d.ts
 tailwind.config.mjs
 postcss.config.js
+svelte.config.js
