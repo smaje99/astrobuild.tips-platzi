@@ -7,5 +7,6 @@ import vue from '@astrojs/vue';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'http://localhost:4321',
   integrations: [tailwind(), mdx(), react(), vue(), /* svelte() */]
 });
