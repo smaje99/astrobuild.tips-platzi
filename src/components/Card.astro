@@ -13,7 +13,7 @@ const { title, time, tags, slug = null } = Astro.props;
   class='rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:shadow-sm'
 >
   <div class='rounded-[10px] bg-white p.4 !pt-20 sm:p-6'>
-    <time datetime='2023-12-28' class='block text-xs text-gray-500'>
+    <time datetime={time} class='block text-xs text-gray-500'>
       {time}
     </time>
     <a href={slug ? `/posts/${slug}` : '#'}>
