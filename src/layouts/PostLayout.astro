@@ -1,16 +1,20 @@
 ---
+import { formatDate } from '@/utils/date';
+
 interface Props {
-  content: {
-    title: string;
-    pubDate: string;
-    image?: string;
-    tags: string[];
+  readonly content: {
+    readonly title: string;
+    readonly pubDate: string;
+    readonly image?: string;
+    readonly tags: string[];
   };
 }
 
 const {
   content: { title, pubDate, image = null, tags },
 } = Astro.props;
+
+const pubDateFormatted = formatDate(pubDate);
 ---
 
 <!doctype html>
@@ -31,7 +35,9 @@ const {
           <div
             class='flex flex-col gap-x-1 pt-1 sm:gap-y-2 md:flex-row md:items-center md:gap-y-0 md:divide-x'
           >
-            <time datetime={pubDate} class='pr-2'>{pubDate}</time>
+            <time datetime={pubDateFormatted} class='pr-2'>
+              {pubDateFormatted}
+            </time>
             {
               tags.map((tag) => (
                 <small class='whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600'>
